@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alpine Linux netboot">
+  <title>Alpine Linux netboot</title>
+  <link rel="stylesheet" href="html/theme.css">
+  <link rel="stylesheet" href="html/style.css">
+  <link rel="shortcut icon" href="html/favicon.ico" />
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <div class="g-4-24">
+        <div class="logo">
+          <a href="/"><img src="html/alpinelinux-logo.svg" alt="Alpine Logo" class="img-block"></a>
+        </div>
+      </div>
+      <div class="g-20-24">
+      </div>
+    </header>
+    <div class="markdown-body">
+    <?theme body?>
+    </div>
+    <footer>
+      <span>© Copyright 2018 Alpine Linux Development Team all rights reserved</span> | <span>Page generated <?theme date?> GMT</span>
+    </footer>
+  </div>
+</body>
+</html>
