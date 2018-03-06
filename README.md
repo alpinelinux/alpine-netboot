@@ -5,7 +5,7 @@ Welcome to the Alpine Linux netboot server.
 Netboot provides kernel initramfs and modloop images to boot over the
 network/internet. Booting from netboot is provided by the IPXE binaries
 available in alpine-ipxe `apk add alpine-ipxe` or from
-[this location](alpine-ipxe).
+[this location](alpine-ipxe) for x86_64.
 
 ## Boot script
 
@@ -39,16 +39,17 @@ signatures and will result in failed boot.
 
 ## Boot options
 
-### BIOS
+### BIOS (x86_64)
 
 * [pxe.lkrn](alpine-ipxe/ipxe.lkrn) - Linux kernel image that can be used by a bootloader/qemu
 * [pxe.pxe](alpine-ipxe/ipxe.pxe) - PXE image for chainloading from a PXE environment
 * [undionly.kpxe](alpine-ipxe/undionly.kpxe) - PXE image with UNDI support
 * [ipxe.iso](alpine-ipxe/ipxe.iso) - ISO image to boot from any regular system
+* [ipxe.usb](alpine-ipxe/ipxe.usb) - disk image to write to (USB) block device
 
-### UEFI
+### UEFI (x86_64)
 
-* [ipxe.efi](alpine-ipxe/ipxe.efi) x86_64 UEFI executable
+* [ipxe.efi](alpine-ipxe/ipxe.efi) UEFI executable
 
 ## Updates
 
