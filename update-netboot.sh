@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 REPO="http://dl-cdn.alpinelinux.org/alpine"
 BRANCHES="edge latest-stable"
@@ -86,7 +86,7 @@ for branch in $BRANCHES; do
 			mv "$tmpdir" "$IMGDIR"/$branch/$arch
 			mv "$tmpfile" "$CACHE_DIR"/$branch-$arch.lst
 		else
-			printf "No update found\n\n"
+			printf "No update found\n"
 			rm -f $tmpfile
 		fi
 	done
