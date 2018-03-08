@@ -2,7 +2,7 @@
 
 REPO="http://dl-cdn.alpinelinux.org/alpine"
 BRANCHES="edge latest-stable"
-ARCHS="x86 x86_64"
+ARCHS="x86 x86_64 aarch64"
 IMGDIR="/var/www/localhost/htdocs/images"
 
 # CA Settings
@@ -80,7 +80,7 @@ for branch in $BRANCHES; do
 		if ! compare_files $tmpfile "$CACHE_DIR"/$branch-$arch.lst; then
 			echo "Dependencies updated for: $branch/$arch"
 			./mknetboot.sh --release "$branch" --arch "$arch" --outdir "$tmpdir"
-			(cd "$tmpdir" && sha512sum * > alpine-netboot-$branch-$arch.sha512)
+			(cd "$tmpdir" && sha512sum * > alpine-netboot-$branch-$arch.sha512 || true)
 			sign_images "$tmpdir"
 			rm -rf "$IMGDIR"/$branch/$arch
 			mv "$tmpdir" "$IMGDIR"/$branch/$arch

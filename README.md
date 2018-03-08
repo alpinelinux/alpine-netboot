@@ -27,9 +27,11 @@ Current available images are:
 * **edge**
   * [x86](images/edge/x86)
   * [x86_64](images/edge/x86_64)
+  * [aarch64](images/edge/aarch64)
 * **latest-stable**
   * [x86](images/latest-stable/x86)
   * [x86_64](images/latest-stable/x86_64)
+  * [aarch64](images/latest-stable/aarch64)
 
 ## Signed images
 
