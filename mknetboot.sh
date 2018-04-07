@@ -73,4 +73,13 @@ for file in vmlinuz config System.map; do
 	fi
 done
 
+# arm64 kernel is not a std bzImage but intead gzip compressed image
+# iPXE efi mode (default for aarch64) does not support compressed kernel image
+if [ "$ARCH" = "aarch64" ] && gunzip -t "$OUTDIR"/vmlinuz-"$FLAVOR" 2> /dev/null; then
+	TMP_KERNEL=$(mktemp)
+	zcat "$OUTDIR"/vmlinuz-"$FLAVOR" > $TMP_KERNEL && mv $TMP_KERNEL \
+		"$OUTDIR"/vmlinuz-"$FLAVOR"
+	chmod 644 "$OUTDIR"/vmlinuz-"$FLAVOR"
+fi
+
 rm -f "$REPOFILE"
