@@ -5,7 +5,7 @@ Welcome to the Alpine Linux netboot server.
 Netboot provides kernel initramfs and modloop images to boot over the
 network/internet. Booting from netboot is provided by the IPXE binaries
 available in alpine-ipxe `apk add alpine-ipxe` or from
-[this location](alpine-ipxe) for x86_64.
+[this location](alpine-ipxe) (x86_64 and aarch64).
 
 ## Boot script
 
@@ -17,7 +17,8 @@ build your own version of [ipxe](https://ipxe.org).
 Some cloud providers (ie [packet.net](https://help.packet.net/technical/infrastructure/custom-ipxe))
 support the loading of custom ipxe scripts/payloads to install an operating
 system. You can chainload one of the ipxe loaders from [alpine-ipxe](alpine-ipxe).
-Don't load the boot.ipxe script directly as image verifications will fail.
+Loading our default boot script from another firware will disable image
+verification.
 
 ## Images
 
@@ -36,22 +37,26 @@ Current available images are:
 ## Signed images
 
 Alpine Linux images are signed and can be verified only by making use of
-[alpine-ipxe](alpine-ipxe). Using another ipxe loader will not trust our 
-signatures and will result in failed boot.
+[alpine-ipxe](alpine-ipxe). Using another ipxe loader will disable verification.
 
 ## Boot options
 
 ### BIOS (x86_64)
 
-* [pxe.lkrn](alpine-ipxe/ipxe.lkrn) - Linux kernel image that can be used by a bootloader/qemu
-* [pxe.pxe](alpine-ipxe/ipxe.pxe) - PXE image for chainloading from a PXE environment
-* [undionly.kpxe](alpine-ipxe/undionly.kpxe) - PXE image with UNDI support
-* [ipxe.iso](alpine-ipxe/ipxe.iso) - ISO image to boot from any regular system
-* [ipxe.usb](alpine-ipxe/ipxe.usb) - disk image to write to (USB) block device
+* [pxe.lkrn](alpine-ipxe/x86_64/ipxe.lkrn) - Linux kernel image that can be used by a bootloader/qemu
+* [pxe.pxe](alpine-ipxe/x86_64/ipxe.pxe) - PXE image for chainloading from a PXE environment
+* [undionly.kpxe](alpine-ipxe/x86_64/undionly.kpxe) - PXE image with UNDI support
+* [ipxe.iso](alpine-ipxe/x86_64/ipxe.iso) - ISO image to boot from any regular system
+* [ipxe.usb](alpine-ipxe/x86_64/ipxe.usb) - disk image to write to (USB) block device
 
 ### UEFI (x86_64)
 
-* [ipxe.efi](alpine-ipxe/ipxe.efi) UEFI executable
+* [ipxe.efi](alpine-ipxe/x86_64/ipxe.efi) UEFI executable
+
+### UEFI (aarch64)
+
+* [snp.efi](alpine-ipxe/aarch64/snp.efi) UEFI executable
+
 
 ## Updates
 
