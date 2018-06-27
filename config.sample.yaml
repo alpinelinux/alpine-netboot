@@ -1,0 +1,23 @@
+---
+mirror: http://dl-cdn.alpinelinux.org/alpine
+tpl: boot.ipxe.tpl
+ipxe: /var/www/localhost/htdocs/boot-test.ipxe
+branches:
+  - latest-stable
+archs:
+  - x86
+  - x86_64
+  - aarch64
+consoles:
+  - tty0
+  - ttyS0
+  - ttyS1
+  - ttyAMA0
+flavors:
+  - vanilla
+  - virt
+cmdline: modules=loop,squashfs quiet nomodeset
+default:
+  flavor: vanilla
+  branch: latest-stable
+...
