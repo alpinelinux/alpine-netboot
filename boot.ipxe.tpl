@@ -111,7 +111,7 @@ set sig-url sigs/${branch}/${arch}/${version}
 set repo-url ${mirror}/${branch}/main
 set modloop-url ${img-url}/modloop-${flavor}
 imgfree
-kernel ${img-url}/vmlinuz-${flavor} ${cmdline} alpine_repo=${repo-url} modloop=${modloop-url} ${console} ${acpi} ${ssh_key}
+kernel ${img-url}/vmlinuz-${flavor} ${cmdline} alpine_repo=${repo-url} modloop=${modloop-url} ${console} ${acpi} ${ssh_key} initrd=initramfs-${flavor}
 initrd ${img-url}/initramfs-${flavor}
 iseq ${img_verify} enabled && goto verify_img || goto no_img_verify
 :verify_img
